@@ -91,15 +91,26 @@
   .projects{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
   .proj{background:var(--panel);padding:30px 30px 26px;transition:background .2s}
   .proj:hover{background:var(--accent-soft)}
+  .proj .media{margin:-30px -30px 22px;aspect-ratio:1200 / 630;overflow:hidden;position:relative;background:var(--accent-soft)}
+  .proj .media img{width:100%;height:100%;object-fit:cover;display:block}
+  .proj .media.photo img{filter:grayscale(.4) saturate(.85) contrast(1.02)}
+  .proj .media.photo::after{content:"";position:absolute;inset:0;background:var(--accent);opacity:.12;mix-blend-mode:overlay;pointer-events:none}
   .proj .ph{display:flex;align-items:center;justify-content:space-between;gap:10px}
   .proj h3{font-family:"Fraunces",serif;font-size:19px;font-weight:600}
   .proj .tn{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted)}
   .proj p{margin-top:11px;color:var(--soft);font-size:14px;line-height:1.62}
   .proj .tags{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px}
   .tag{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--soft);border:1px solid var(--line);border-radius:5px;padding:2px 8px}
-  .proj .links{margin-top:16px;display:flex;gap:18px;font-size:13px}
-  .proj .links a{color:var(--accent);border-bottom:1px solid transparent;padding-bottom:1px;transition:border-color .2s}
-  .proj .links a:hover{border-color:var(--accent)}
+  .proj .links{margin-top:14px;margin-bottom:4px;display:flex;flex-wrap:wrap;gap:10px;font-size:13px}
+  .proj .links a{display:inline-flex;align-items:center;gap:6px;color:var(--accent);border:1px solid var(--accent);border-radius:100px;padding:6px 15px;font-weight:500;transition:background .2s,color .2s}
+  .proj .links a::after{content:"→";font-size:12px;opacity:.85}
+  .proj .links a:hover{background:var(--accent);color:var(--panel)}
+  .applist{display:flex;gap:11px;margin-top:18px}
+  .applist a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:9px;overflow:hidden;border:1px solid var(--line);background:var(--panel);transition:transform .2s,border-color .2s}
+  .applist a:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .applist img{width:100%;height:100%;display:block}
+  .applist a.gear{background:var(--accent-soft)}
+  .applist a.gear svg{width:22px;height:22px;fill:var(--accent)}
 
   /* skills */
   .skillgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 56px}
@@ -202,6 +213,12 @@
               <li>Led Pixel Recorder's public Play Store debut and its on-device AI — the first on-device LLM feature shipped at Google and a phone-industry first — partnering with Google DeepMind and several Pixel teams to run Gemini Nano entirely on-device, summarizing recordings fully privately with no network — work recognized with a Google Tech Impact Award.</li>
               <li>Drove Pixel Weather's public launch, differentiating it from entrenched incumbents with a distinctive interactive weather map, more accurate data, a more intuitive at-a-glance reporting display, and AI-generated weather summaries.</li>
             </ul>
+            <div class="applist">
+              <a href="https://play.google.com/store/apps/details?id=com.google.android.deskclock" target="_blank" rel="noopener" title="Google Clock"><img src="img/app-clock.png" alt="Google Clock" loading="lazy"></a>
+              <a href="https://play.google.com/store/apps/details?id=com.google.android.calculator" target="_blank" rel="noopener" title="Google Calculator"><img src="img/app-calculator.png" alt="Google Calculator" loading="lazy"></a>
+              <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.recorder" target="_blank" rel="noopener" title="Pixel Recorder"><img src="img/app-recorder.png" alt="Pixel Recorder" loading="lazy"></a>
+              <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.weather" target="_blank" rel="noopener" title="Pixel Weather"><img src="img/app-weather.png" alt="Pixel Weather" loading="lazy"></a>
+            </div>
           </div>
         </div>
         <div class="role">
@@ -211,9 +228,15 @@
             <div class="co">Google</div>
             <ul>
               <li>TL of the Android Settings team: architected a Settings item-injection system — adopted by virtually every Android OEM — that lets manufacturers fully customize the Settings UI and information architecture for their own branding while staying CTS-compliant. Much of the work is public in AOSP.</li>
-              <li>Founding engineer on the Personal Safety app (Pixel-first, now across the Android ecosystem): emergency calling, real-time location sharing with emergency contacts, and medical-info sharing when help is needed.</li>
+              <li>Founded <a href="https://play.google.com/store/apps/details?id=com.google.android.settings.intelligence&amp;hl=en_US" target="_blank" rel="noopener">Settings Intelligence</a> — a closed-source Google binary that ships on Pixel to bring AI-powered features to the open-source AOSP Settings app.</li>
+              <li>Founding engineer on the <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.safetyhub" target="_blank" rel="noopener">Personal Safety</a> app (Pixel-first, now across the Android ecosystem): emergency calling, real-time location sharing with emergency contacts, and medical-info sharing when help is needed.</li>
               <li>IC on the Google+ Android app: worked on code restructure for performance and modularization, and helped launch the Collections feature.</li>
             </ul>
+            <div class="applist">
+              <a class="gear" href="https://android.googlesource.com/platform/packages/apps/Settings/" target="_blank" rel="noopener" title="Android Settings (AOSP source)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg></a>
+              <a href="https://play.google.com/store/apps/details?id=com.google.android.settings.intelligence&amp;hl=en_US" target="_blank" rel="noopener" title="Settings Intelligence"><img src="img/app-settings-intel.png" alt="Settings Intelligence" loading="lazy"></a>
+              <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.safetyhub" target="_blank" rel="noopener" title="Personal Safety"><img src="img/app-safety.png" alt="Personal Safety" loading="lazy"></a>
+            </div>
           </div>
         </div>
         <div class="role">
@@ -253,16 +276,18 @@
       <div class="eyebrow"><span class="num">03</span><span class="lbl">Selected Projects</span><span class="rule"></span></div>
       <div class="projects">
         <div class="proj">
+          <div class="media"><img src="img/squawkit.png" alt="SquawkIt — aircraft maintenance logbook" loading="lazy"></div>
           <div class="ph"><h3>SquawkIt</h3></div>
+          <div class="links"><a href="https://squawkit.fanfly.dev" target="_blank" rel="noopener">Live site</a></div>
           <p>Aircraft-maintenance logbook for pilots and owners. Tracks inspections, service bulletins, squawks, and engine hours across a whole fleet — local-first and offline-capable, with on-demand PDF reports for pre-buys and annuals. One Compose Multiplatform codebase shipping to Android, iOS, and the web.</p>
           <div class="tags"><span class="tag">Kotlin</span><span class="tag">KMP</span><span class="tag">Compose</span><span class="tag">SQLDelight</span><span class="tag">Firebase</span></div>
-          <div class="links"><a href="https://squawkit.fanfly.dev" target="_blank" rel="noopener">Live site</a></div>
         </div>
         <div class="proj">
+          <div class="media photo"><img src="img/sling-tsi.jpg" alt="Sling TSi build — riveted aluminum control surface" loading="lazy"></div>
           <div class="ph"><h3>Sling TSi Build</h3><span class="tn">N532SL</span></div>
+          <div class="links"><a href="https://www.youtube.com/@fanflynorcal" target="_blank" rel="noopener">YouTube</a><a href="https://n532sl.fanfly.dev" target="_blank" rel="noopener">Build log</a></div>
           <p>A hands-on, multi-year build of a Sling TSi experimental aircraft with a Rotax 915iS engine — 1,000+ hours over three years and counting. One of the most demanding things I've taken on, drawing on aviation hardware, automotive-derived powerplant systems, electronic and avionics engineering, hands-on fabrication and mechanics, and the piloting skills to test-fly what I build.</p>
           <div class="tags"><span class="tag">Airframe</span><span class="tag">Powerplant</span><span class="tag">Avionics</span><span class="tag">Fabrication</span><span class="tag">Piloting</span></div>
-          <div class="links"><a href="https://www.youtube.com/@fanflynorcal" target="_blank" rel="noopener">YouTube</a><a href="https://n532sl.fanfly.dev" target="_blank" rel="noopener">Build log</a></div>
         </div>
       </div>
     </section>
