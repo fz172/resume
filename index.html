@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fan Zhang — Engineer · Pilot · Builder</title>
+<title>Fan Zhang — Engineer · Builder · Aviator</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -37,7 +37,7 @@
     background:var(--paper);transition:background .3s,border-color .3s;
   }
   .brand .name{font-family:"Fraunces",serif;font-size:25px;font-weight:600;letter-spacing:-.01em;line-height:1.15}
-  .brand .tag{margin-top:8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .brand .kicker{margin-top:8px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
   .nav{margin-top:48px;display:flex;flex-direction:column;gap:2px;flex:1}
   .nav a{
     display:flex;align-items:baseline;gap:12px;padding:8px 0;color:var(--soft);
@@ -52,6 +52,7 @@
     color:var(--soft);border-radius:100px;padding:6px 13px;cursor:pointer;font-family:inherit;font-size:12px;transition:all .2s;
   }
   .toggle:hover{border-color:var(--accent);color:var(--accent)}
+  .toggle .ti{font-size:16px;line-height:1}
   .side-foot .loc{font-size:11px;color:var(--muted);letter-spacing:.04em}
 
   /* content */
@@ -145,14 +146,14 @@
 <body>
 <div class="topbar">
   <span class="name">Fan Zhang</span>
-  <button class="toggle" id="t2"><span id="i2">☾</span><span id="l2">Dark</span></button>
+  <button class="toggle" id="t2" aria-label="Toggle theme"><span class="ti" id="i2">☾</span></button>
 </div>
 
 <div class="shell">
   <aside class="side">
     <div class="brand">
       <div class="name">Fan Zhang</div>
-      <div class="tag">Engineer · Builder · Aviator</div>
+      <div class="kicker">Engineer · Builder · Aviator</div>
     </div>
     <nav class="nav" id="nav">
       <a href="#about"><span class="ix">01</span>About</a>
@@ -163,7 +164,7 @@
     </nav>
     <div class="side-foot">
       <span class="loc">SF Bay Area, CA</span>
-      <button class="toggle" id="t1"><span id="i1">☾</span><span id="l1">Dark</span></button>
+      <button class="toggle" id="t1" aria-label="Toggle theme"><span class="ti" id="i1">☾</span></button>
     </div>
   </aside>
 
@@ -253,27 +254,15 @@
       <div class="projects">
         <div class="proj">
           <div class="ph"><h3>SquawkIt</h3></div>
-          <p>Kotlin Multiplatform app for pilots and experimental aircraft builders. Android + iOS with Material 3 / Cupertino adaptive theming, and on-device intelligent search tuned for aviation terminology.</p>
-          <div class="tags"><span class="tag">Kotlin</span><span class="tag">KMP</span><span class="tag">Compose</span><span class="tag">SQLDelight</span><span class="tag">FTS5</span></div>
+          <p>Aircraft-maintenance logbook for pilots and owners. Tracks inspections, service bulletins, squawks, and engine hours across a whole fleet — local-first and offline-capable, with on-demand PDF reports for pre-buys and annuals. One Compose Multiplatform codebase shipping to Android, iOS, and the web.</p>
+          <div class="tags"><span class="tag">Kotlin</span><span class="tag">KMP</span><span class="tag">Compose</span><span class="tag">SQLDelight</span><span class="tag">Firebase</span></div>
           <div class="links"><a href="https://squawkit.fanfly.dev" target="_blank" rel="noopener">Live site</a></div>
         </div>
         <div class="proj">
-          <div class="ph"><h3>Rotax CAN Reader</h3></div>
-          <p>ESP32 + SN65HVD230 CAN bus reader for the Rotax 915iS engine, streaming live engine parameters over WiFi to a Kotlin Android app built on ViewModel / Flow.</p>
-          <div class="tags"><span class="tag">ESP32</span><span class="tag">C++</span><span class="tag">TWAI / CAN</span><span class="tag">Kotlin</span></div>
-          <div class="links"><a href="#">Source</a><a href="#">Write-up</a></div>
-        </div>
-        <div class="proj">
           <div class="ph"><h3>Sling TSi Build</h3><span class="tn">N532SL</span></div>
-          <p>Hands-on build of a Sling TSi experimental aircraft with a Rotax 915iS engine. Documented on YouTube in Shorts and long-form, with build notes in Notion and Obsidian.</p>
-          <div class="tags"><span class="tag">Aircraft</span><span class="tag">Avionics</span><span class="tag">Fabrication</span></div>
-          <div class="links"><a href="#">YouTube</a><a href="#">Build log</a></div>
-        </div>
-        <div class="proj">
-          <div class="ph"><h3>OpenClaw</h3></div>
-          <p>Community framework extending Claude Code into a persistent agentic system reachable over messaging platforms, self-hosted on a cloud VM with token-conscious orchestration.</p>
-          <div class="tags"><span class="tag">Agentic AI</span><span class="tag">Python</span><span class="tag">Self-hosted</span></div>
-          <div class="links"><a href="#">Source</a></div>
+          <p>A hands-on, multi-year build of a Sling TSi experimental aircraft with a Rotax 915iS engine — 1,000+ hours over three years and counting. One of the most demanding things I've taken on, drawing on aviation hardware, automotive-derived powerplant systems, electronic and avionics engineering, hands-on fabrication and mechanics, and the piloting skills to test-fly what I build.</p>
+          <div class="tags"><span class="tag">Airframe</span><span class="tag">Powerplant</span><span class="tag">Avionics</span><span class="tag">Fabrication</span><span class="tag">Piloting</span></div>
+          <div class="links"><a href="https://www.youtube.com/@fanflynorcal" target="_blank" rel="noopener">YouTube</a><a href="https://n532sl.fanfly.dev" target="_blank" rel="noopener">Build log</a></div>
         </div>
       </div>
     </section>
@@ -284,20 +273,20 @@
         <div>
           <h4>Engineering</h4>
           <div class="chips">
-            <span class="chip">Kotlin</span><span class="chip">Java</span><span class="chip">Android</span><span class="chip">KMP</span><span class="chip">Jetpack Compose</span><span class="chip">C++</span><span class="chip">Python</span><span class="chip">Embedded / CAN</span><span class="chip">Agentic AI</span><span class="chip">Git &amp; Mercurial</span>
+            <span class="chip">Technical Leadership</span><span class="chip">Android</span><span class="chip">AI Integration</span>
           </div>
         </div>
         <div>
           <h4>Aviation &amp; Hardware</h4>
           <div class="chips">
-            <span class="chip">Experimental Aircraft</span><span class="chip">Avionics Wiring</span><span class="chip">Rotax 915iS</span><span class="chip">Fabrication</span><span class="chip">FAA Regs</span>
+            <span class="chip">Experimental Aircraft Mechanics</span><span class="chip">Avionics Troubleshooting</span><span class="chip">Rotax 915iS Engine</span><span class="chip">Sheet Metal</span>
           </div>
         </div>
         <div>
           <h4>Licenses &amp; Certifications</h4>
           <div class="certs">
-            <div class="cert"><span class="dot">◆</span><span class="ct">FAA Private Pilot — Instrument Rated</span><span class="cm">Jul 2012</span></div>
-            <div class="cert"><span class="dot">◆</span><span class="ct">Rotax iRMT — Engine Maintenance &amp; Service</span><span class="cm">2025–2027</span></div>
+            <div class="cert"><span class="dot">◆</span><span class="ct">FAA Private Pilot — Instrument Rated</span></div>
+            <div class="cert"><span class="dot">◆</span><span class="ct">Rotax iRMT — Engine Maintenance &amp; Service</span></div>
           </div>
         </div>
         <div>
@@ -313,12 +302,12 @@
       <div class="eyebrow"><span class="num">05</span><span class="lbl">Contact</span><span class="rule"></span></div>
       <h2>Let's build something<br>that gets off the ground.</h2>
       <div class="links">
-        <a href="https://www.linkedin.com/in/fan-zhang-4b23a2a"><span>LinkedIn</span><span class="k">in/fan-zhang-4b23a2a →</span></a>
-        <a href="mailto:you@example.com"><span>Email</span><span class="k">you@example.com →</span></a>
-        <a href="#"><span>GitHub</span><span class="k">add your handle →</span></a>
-        <a href="#"><span>YouTube — the build channel</span><span class="k">add link →</span></a>
+        <a href="https://www.linkedin.com/in/fan-zhang-4b23a2a" target="_blank" rel="noopener"><span>LinkedIn</span><span class="k">in/fan-zhang-4b23a2a →</span></a>
+        <a href="mailto:fanzhang172@gmail.com"><span>Email</span><span class="k">fanzhang172@gmail.com →</span></a>
+        <a href="https://github.com/fz172" target="_blank" rel="noopener"><span>GitHub</span><span class="k">@fz172 →</span></a>
+        <a href="https://www.youtube.com/@fanflynorcal" target="_blank" rel="noopener"><span>YouTube — the build channel</span><span class="k">@fanflynorcal →</span></a>
       </div>
-      <div class="foot">© 2026 Fan Zhang · Designed &amp; built from scratch.</div>
+      <div class="foot">© 2026 Fan Zhang</div>
     </section>
   </main>
 </div>
@@ -327,8 +316,8 @@
   const root=document.documentElement;
   function setIcons(dark){
     ['1','2'].forEach(n=>{
-      const i=document.getElementById('i'+n),l=document.getElementById('l'+n);
-      if(i)i.textContent=dark?'☀':'☾'; if(l)l.textContent=dark?'Light':'Dark';
+      const i=document.getElementById('i'+n);
+      if(i)i.textContent=dark?'☀':'☾';
     });
   }
   function apply(t){root.setAttribute('data-theme',t);setIcons(t==='dark');}
