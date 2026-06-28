@@ -68,7 +68,8 @@
   .hero h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(34px,5vw,52px);line-height:1.08;letter-spacing:-.02em}
   .hero h1 em{font-style:italic;color:var(--accent)}
   .hero .lede{margin-top:26px;max-width:60ch;font-size:17px;color:var(--soft);line-height:1.7}
-  .hero .meta{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px 28px;font-size:13px;color:var(--muted)}
+  .hero .meta{margin-top:34px;display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--muted)}
+  .hero .meta .row{display:flex;flex-wrap:wrap;gap:10px 28px}
   .hero .meta b{color:var(--ink);font-weight:500}
 
   /* resume timeline */
@@ -80,6 +81,8 @@
   .role ul{margin-top:12px;list-style:none;display:flex;flex-direction:column;gap:6px}
   .role li{position:relative;padding-left:18px;color:var(--soft);font-size:14.5px}
   .role li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.6}
+  .role li a{color:var(--accent);border-bottom:1px solid var(--line);transition:border-color .2s}
+  .role li a:hover{border-bottom-color:var(--accent)}
   .sub{font-family:"Fraunces",serif;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:46px 0 24px}
   .sub:first-child{margin-top:0}
 
@@ -106,7 +109,10 @@
   .certs{display:flex;flex-direction:column;gap:14px}
   .cert{display:flex;gap:14px;align-items:baseline}
   .cert .dot{color:var(--accent)}
-  .cert .ct{font-weight:500} .cert .cm{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-left:auto}
+  .cert .ct{font-weight:500} .cert .cm{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-left:auto;white-space:nowrap}
+  .cert .cs{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.5}
+  .cert .cs a{color:var(--accent);border-bottom:1px solid var(--line);transition:border-color .2s}
+  .cert .cs a:hover{border-bottom-color:var(--accent)}
 
   /* contact */
   .contact h2{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(28px,4vw,40px);letter-spacing:-.02em;line-height:1.12}
@@ -163,13 +169,20 @@
 
   <main>
     <section class="hero" id="about">
-      <h1>Building things that<br><em>think</em> — and things that <em>fly</em>.</h1>
+      <h1>Making things fly —<br><em>digitally</em> and <em>physically</em>.</h1>
       <p class="lede">Software engineer with a decade-plus shipping Android and AI-integrated apps at scale, now pursuing entrepreneurial work. Equally at home in code, in the cockpit, and under an airframe — instrument-rated pilot and hands-on builder of an experimental aircraft. I'm drawn to hard problems that cross software, hardware, and the physical world.</p>
       <div class="meta">
-        <span><b>12+</b> yrs engineering</span>
-        <span><b>Ex-Google</b> Tech Lead Manager</span>
-        <span><b>FAA</b> Instrument-Rated Pilot</span>
-        <span><b>Rotax</b> iRMT certified</span>
+        <div class="row">
+          <span><b>15+</b> yrs engineering</span>
+        </div>
+        <div class="row">
+          <span><b>Ex-Google</b> Tech Lead Manager</span>
+          <span><b>Ex-Amazon</b> Individual Contributor</span>
+        </div>
+        <div class="row">
+          <span><b>FAA</b> Instrument-Rated Pilot</span>
+          <span><b>Rotax</b> iRMT certified</span>
+        </div>
       </div>
     </section>
 
@@ -184,8 +197,9 @@
             <h3>Tech Lead Manager</h3>
             <div class="co">Google · Mountain View, CA</div>
             <ul>
-              <li>Eng manager and lead IC for several Pixel apps and key Pixel engineering goals around helpful AI integration and mobile device experience launches.</li>
-              <li>Oversaw development of Google Clock, Google Calculator, Pixel Recorder, and Pixel Weather.</li>
+              <li>Eng manager and lead IC across a portfolio of Pixel apps — <a href="https://play.google.com/store/apps/details?id=com.google.android.deskclock" target="_blank" rel="noopener">Google Clock</a>, <a href="https://play.google.com/store/apps/details?id=com.google.android.calculator" target="_blank" rel="noopener">Google Calculator</a>, <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.recorder" target="_blank" rel="noopener">Pixel Recorder</a>, and <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.weather" target="_blank" rel="noopener">Pixel Weather</a> — driving roadmap planning, cross-functional prioritization and feature feasibility, and delivery timelines, while staying hands-on in engineering design and owning features as an IC.</li>
+              <li>Led Pixel Recorder's public Play Store debut and its on-device AI — the first on-device LLM feature shipped at Google and a phone-industry first — partnering with Google DeepMind and several Pixel teams to run Gemini Nano entirely on-device, summarizing recordings fully privately with no network — work recognized with a Google Tech Impact Award.</li>
+              <li>Drove Pixel Weather's public launch, differentiating it from entrenched incumbents with a distinctive interactive weather map, more accurate data, a more intuitive at-a-glance reporting display, and AI-generated weather summaries.</li>
             </ul>
           </div>
         </div>
@@ -195,7 +209,9 @@
             <h3>Software Engineer</h3>
             <div class="co">Google</div>
             <ul>
-              <li>IC / TL across several Android apps: Google+, AOSP Settings &amp; Google Pixel Settings, and Personal Safety.</li>
+              <li>TL of the Android Settings team: architected a Settings item-injection system — adopted by virtually every Android OEM — that lets manufacturers fully customize the Settings UI and information architecture for their own branding while staying CTS-compliant. Much of the work is public in AOSP.</li>
+              <li>Founding engineer on the Personal Safety app (Pixel-first, now across the Android ecosystem): emergency calling, real-time location sharing with emergency contacts, and medical-info sharing when help is needed.</li>
+              <li>IC on the Google+ Android app: worked on code restructure for performance and modularization, and helped launch the Collections feature.</li>
             </ul>
           </div>
         </div>
@@ -224,8 +240,9 @@
         <div class="role">
           <div class="when">2005 — 2006</div>
           <div>
-            <h3>B.S. Computer Science</h3>
+            <h3>Computer Science</h3>
             <div class="co">Nanjing University of Aeronautics &amp; Astronautics</div>
+            <ul><li>Completed first-year studies before transferring to Purdue.</li></ul>
           </div>
         </div>
       </div>
@@ -235,10 +252,10 @@
       <div class="eyebrow"><span class="num">03</span><span class="lbl">Selected Projects</span><span class="rule"></span></div>
       <div class="projects">
         <div class="proj">
-          <div class="ph"><h3>WingsLog</h3></div>
+          <div class="ph"><h3>SquawkIt</h3></div>
           <p>Kotlin Multiplatform app for pilots and experimental aircraft builders. Android + iOS with Material 3 / Cupertino adaptive theming, and on-device intelligent search tuned for aviation terminology.</p>
           <div class="tags"><span class="tag">Kotlin</span><span class="tag">KMP</span><span class="tag">Compose</span><span class="tag">SQLDelight</span><span class="tag">FTS5</span></div>
-          <div class="links"><a href="#">Source</a><a href="#">Demo</a></div>
+          <div class="links"><a href="https://squawkit.fanfly.dev" target="_blank" rel="noopener">Live site</a></div>
         </div>
         <div class="proj">
           <div class="ph"><h3>Rotax CAN Reader</h3></div>
@@ -286,7 +303,7 @@
         <div>
           <h4>Honors</h4>
           <div class="certs">
-            <div class="cert"><span class="dot">★</span><span class="ct">Tech Impact Award — Google</span><span class="cm">Jun 2024</span></div>
+            <div class="cert"><span class="dot">★</span><div><span class="ct">Tech Impact Award — Google</span><div class="cs">For the on-device AI in <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.recorder" target="_blank" rel="noopener">Pixel Recorder</a> — Google's first on-device LLM feature.</div></div><span class="cm">Jun 2024</span></div>
           </div>
         </div>
       </div>
